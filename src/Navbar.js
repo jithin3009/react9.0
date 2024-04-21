@@ -1,38 +1,22 @@
-import React ,{useState}from 'react';
+import React from 'react';
 import './App.css';
-import AddPopup from './AddPopup';
-function Navbar({ handleSearchChange, searchQuery, onAddNew }) {
-    const [showAddPopup, setShowAddPopup] = useState(false);
-
-    const handleAddClick = () => {
-      setShowAddPopup(true);
-    };
-  
-    const handleClosePopup = () => {
-      setShowAddPopup(false);
-    };
-  
+function Navbar({ handleSearchChange, searchQuery ,toggleSidebar}) {
+    const [sidebarVisible, setSidebarVisible] = useState(false);
+   
+    const toggleSidebar = () => {
+        setSidebarVisible(!sidebarVisible);
+      };
     return (
 
         <nav className='navbar'>
-            {/* <div>
-                <input
-
-                    type="text"
-                    placeholder="Search..."
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                />      
-            </div> */}
+        <button className="toggle-btn" onClick={toggleSidebar}>Toggle</button>
+        
             <div className="search-field">
-      <input className="search-btn" type="text" value={searchQuery}
+               <input className="search-btn" type="text" value={searchQuery}
                     onChange={handleSearchChange}
-                     placeholder="Search" />
-                    <i className="fa fa-search"></i>
-      </div>
+                     placeholder="Search Error codes...." />
+                </div>
             <div>
-            <button onClick={handleAddClick}>Add</button>
-            <AddPopup show={showAddPopup} onClose={handleClosePopup} />
             </div>
 
         </nav>

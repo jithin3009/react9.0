@@ -1,19 +1,22 @@
-/* Navbar.css */
+.app{
+  background-color: #000000;
+}
 .navbar{
-  background-color: #d2e9a2;
-  padding: 7px;
+  background-color: #ddf87d;
   color: #fff;
-  
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-
+  box-shadow: 1px 1px 10px 1px black;
 }
 
 .search-field {
   display: flex;
   position: relative;
-  width: 70%;
+  width: 100%;
   align-items: left;
+
   text-align: left;
 }
 
@@ -23,8 +26,8 @@
   text-align: left;
   align-items: left;
   border: none;
+  height: 30px;
   width: 100%;
-  border-radius: 10px;
   
 }
 .search-field input:focus,
@@ -41,18 +44,6 @@
 
 label{
   color: black;
-}
-button {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #0d9500;
-  color: #fff;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #2e6938;
 }
 
 
@@ -86,16 +77,22 @@ button:hover {
 
 .main-table {
   width: 100%;
-  border-collapse: collapse;
+    box-shadow: 1px 1px 3px 2px #999;
+ margin-left: 10px;
+    border-collapse: collapse;
+    border: 1px black;
+    background-color: #ddf87d;
+    
 }
 
+
 th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px solid #b7b7b7;
+  padding: 7px;
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #e2e1e1;
 }
 
 tr:hover {
@@ -106,35 +103,42 @@ tr:hover {
 
 
 
-.pagination button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  margin-right: 5px;
-  border-radius: 5px;
-  cursor: pointer;
+
+
+  .detail-section{
+  
+  background-color:#dfdfdf ;
+   margin-left: 10px;
+  margin-bottom: 10px;
+  
 }
-.pagination-summary{
+.detail-section:hover{
+  
+  background-color:#dfdfdf ;
+   margin-left: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px #000000;
+}
+th .code-field{
 display: flex;
+padding-top: 15px;
+}
+.source-label{
+  font-size: 13px;
+}
+.detail-class{
+  padding: 10px;
+
+}
+.error-field{
+width: 90%;
+height: 20px;
+margin-left: 10px;
 padding: 10px;
-justify-content: space-between;
-}
-
-.pagination button:hover {
-  background-color: #0056b3;
-}
-
-.pagination button.active {
-  background-color: #0056b3;
-}
-
-/* DetailPage.css */
-.detail-section{
-  padding: 20px;
-  background-color: #d2e9a2;
-  border-radius: 8px;
-  display: flex;
+align-content: normal;
+background-color: #ffffff;
+border-radius: 4px;
+border: 1px solid rgba(0, 0, 0, 0.264);
 }
 .edit-detail input{
   border-radius: 12px;
@@ -146,7 +150,18 @@ justify-content: space-between;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+ 
 }
+
+
+
+.detail-field{
+  left: 50px;
+  height: 100%;
+  padding: 10px;
+}
+
+
 
 .detail-container h2 {
   margin-bottom: 10px;
@@ -184,16 +199,218 @@ justify-content: space-between;
   margin-top: 10px;
 }
 
-.buttons button {
-  padding: 8px 15px;
-  margin-left: 5px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-}
+
 
 .buttons button:hover {
   background-color: #0056b3;
 }
+
+.pagination button.active {
+  background-color: #aaaaaa;
+  color: rgb(0, 0, 0);
+}
+
+
+
+
+/* .navbar {
+  position: fixed;
+  display: flex;
+  background-color: #d2e9a2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-between;
+  color: #fff;
+  padding: 30px;
+} */
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; 
+  width: 250px;
+  height: 100%;
+  box-shadow: 1px 1px 5px 1px black;
+  transition: left 0.3s ease-in-out;
+}
+
+.sidebar.visible {
+  left: 0; 
+  transition: 0.2s;
+}
+
+.main-content {
+  margin-left: 360px; 
+  padding-top: 65px;
+  padding-right: 19px;
+  transition: 0.4s; 
+  background-color: #ffffff62;
+}
+
+.main-content button {
+  padding: 8px 15px;
+  border: 1px solid rgb(187, 181, 181);
+  background-color: #0d9500;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+
+
+
+.toggle-btn {
+  background-color: #cbcbcb;
+  color: #010101;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-right: 1px solid black;
+}
+
+
+
+.toggle-btn-active {
+  background-color: #ddf87d; /* Change to the color you desire */
+}
+.toggle-btn {
+font-size: 20px;
+}
+.side-bar{
+  position: fixed;
+  top: 50px;
+  padding-top: 40px;
+  width: 250px;
+  height: 100%;
+  background-color: #e0e0e0;
+  transition: left 0.3s ease;
+}
+.sidebar-heading {
+  width: 80%;
+  background-color: #ddf87d;
+  color: rgb(46, 46, 46);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
+  border: 1px solid rgb(107, 107, 107);
+  box-shadow: 1px 1px 1px 1px rgb(133, 131, 131);
+}
+
+.sidebar-heading:hover {
+  background-color: #cfcfcf;
+  transition: 1s;
+}
+.side-bar-top{
+  display: flex;
+  justify-content: center;
+  margin: none;
+  padding: 0px;
+}
+.checkbox-container {
+  padding: 10px;
+  display: inline;
+}
+
+.checkbox-container label {
+ 
+  margin-bottom: 5px;
+  color: rgb(0, 0, 0);
+}
+
+.checkbox-row {
+   margin-top: 10px;
+}
+
+.checkbox-item {
+ 
+ display: flex;
+ margin-left: 10px;
+ margin-top: 6px;
+}
+
+.checkbox-item label {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.dropdown-container {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 10px;
+}
+.dropdown-container-system{
+  
+  padding: 10px;
+}
+
+.dropdown-container  select ,
+.dropdown-container-system select{
+  width: 90%;
+padding: 4px;  
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.system-name ,
+.error-source,
+.system-name{
+  margin-left: 5px;
+  font-size: 14px;
+  color: black;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown select {
+  padding-right: 30px;
+}
+
+
+.clear-btn {
+  position: relative;
+  left: 3px;
+  background-color: rgba(255, 0, 0, 0.781);
+  top: 35%;
+  border-radius: 11px;
+  padding-bottom: 3px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.file-grab{
+  background-color: #ffffff;
+ padding-right: 10px;
+}
+
+.file-grab button{
+  background-color: #006212;
+  border-radius: 10px;
+  color: white;
+}
+
+.file-grab button:hover{
+  background-color: #00991c;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 5px #000000;
+  transition: 0.5s;
+}
+

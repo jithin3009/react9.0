@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Pagination.css'
 function Pagination({setCurrentPage,setItemsPerPage,filteredData,currentPage,itemsPerPage,currentItems}) {
     const lastPage = Math.ceil(filteredData.length / itemsPerPage);
 

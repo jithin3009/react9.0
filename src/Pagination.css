@@ -1,0 +1,25 @@
+.pagination button {
+    background-color: #ffffff6a;
+    color: #000000;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  .pagination-summary{
+  display: flex;
+  
+  margin: 40px 1px 40px 14px;
+  justify-content: space-between;
+  }
+  
+  .pagination button:hover {
+    background-color: #b8b7b76a;
+  
+    color: #000000;
+    border: 1px solid black;}
+  
+  .pagination button.active {
+    background-color: #9898986a;
+  
+    color: #000000;
+    border: 1px solid black;}
+  
