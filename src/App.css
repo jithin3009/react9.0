@@ -87,15 +87,15 @@ label{
 
 
 th, td {
-  border: 1px solid #b7b7b7;
+  border: 1px solid #ffffff;
   padding: 7px;
 }
 
 th {
-  background-color: #e2e1e1;
+  background-color: #f1f1f1;
 }
 
-tr:hover {
+.main-table tr:hover {
   background-color: #f5f5f5;
 }
 
@@ -119,6 +119,7 @@ tr:hover {
   margin-bottom: 10px;
   box-shadow: 0 0 5px #000000;
 }
+
 th .code-field{
 display: flex;
 padding-top: 15px;
@@ -242,8 +243,7 @@ border: 1px solid rgba(0, 0, 0, 0.264);
 }
 
 .main-content {
-  margin-left: 360px; 
-  padding-top: 65px;
+  margin-left: 360px;   padding-top: 65px;
   padding-right: 19px;
   transition: 0.4s; 
   background-color: #ffffff62;
@@ -288,7 +288,8 @@ font-size: 20px;
   transition: left 0.3s ease;
 }
 .sidebar-heading {
-  width: 80%;
+  margin-left: 10px;
+  width: 85%;
   background-color: #ddf87d;
   color: rgb(46, 46, 46);
   border: none;
@@ -304,10 +305,11 @@ font-size: 20px;
   background-color: #cfcfcf;
   transition: 1s;
 }
-.side-bar-top{
+.side-bar-top Link{
   display: flex;
   justify-content: center;
   margin: none;
+ 
   padding: 0px;
 }
 .checkbox-container {
@@ -410,7 +412,34 @@ padding: 4px;
   background-color: #00991c;
   border-radius: 10px;
   color: white;
-  box-shadow: 0 0 5px #000000;
   transition: 0.5s;
 }
 
+.second-table{
+  padding: 10px;
+}
+
+.no-data{
+  text-align: center;
+  width: 100%;
+}
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination{
+  text-align: end;
+}
+.pagination-summary{
+  width: 100%;
+  display: flex;
+}
+
+.lower-main-table{
+  width: 100%;
+  margin-left: 10px;
+}
+.lower-main-table td{
+  border: transparent;
+}

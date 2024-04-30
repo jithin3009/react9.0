@@ -1,17 +1,20 @@
 import React from 'react';
 import './App.css';
+import { Link } from 'react-router-dom';
 const Sidebar = ({ checkboxOptions,selectedCheckboxes,handleCheckboxChange,handleDropdownChange,dropdownOptions,selectedDropdownValue ,handleClearDropdown}) => {
   // const [checkboxChecked, setCheckboxChecked] = useState(false);
   // const handleCheckboxChange = () => {
   //   setCheckboxChecked(!checkboxChecked);
   // };
-
+  
   
   return (
+    <div className="details">
     <div className="side-bar">
-  <div className='side-bar-top'> 
-          <button className="sidebar-heading">Error Codes</button>
+  <div className='side-bar-top'>
+          <Link to="/"> <button className="sidebar-heading">Error Codes</button></Link>      
       </div>
+      
       <div className="dropdown-container">
         <label className='error-source'>Error Source</label>
         {checkboxOptions.map((option) => (
@@ -43,7 +46,18 @@ const Sidebar = ({ checkboxOptions,selectedCheckboxes,handleCheckboxChange,handl
             </button>
           )}
         </div>
+        <div className=''> 
+          
+           <Link to="/new-page">
+            <button className="sidebar-heading">
+            File Grab</button>
+            </Link>
+          
+      </div>
       </div>   
+      
+      </div>
+      
   );
 };
 

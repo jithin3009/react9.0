@@ -3,8 +3,10 @@ import './App.css';
 import Details from './Details';
 import Pagination from './Pagination';
 import { FiMenu} from "react-icons/fi";
+import { BrowserRouter as Router, Route,Routes, Switch } from 'react-router-dom';
 import { FaSortNumericUpAlt,FaSortNumericUp } from "react-icons/fa";
 import Sidebar from './Sidebar';
+import FileGrab from './FileGrab';
 function Body() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -49,7 +51,17 @@ function Body() {
     );
 
 
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  
     
+  
+    const handleSearchChange = (e) => {
+      setSearchQuery(e.target.value);
+    };
+  
+  
 
 
 
@@ -150,7 +162,7 @@ function Body() {
   };
   
   return (
-
+    <Router>
     <div>
 
       <nav className='navbar' style={{ zIndex: 100 }}>
@@ -161,9 +173,6 @@ function Body() {
           <input className="search-btn" type="text" value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Search Error Codes .." />
-        </div>
-        <div className='file-grab'>
-         <button>File Grab</button>
         </div>
       </nav>
 
@@ -179,11 +188,23 @@ function Body() {
       </div> 
 
 
+            
 
-
+      
       <div className="main-content" style={{ marginLeft: sidebarVisible ? '0' : '260px' }}>
-
+      <Routes>
+        <Route path='/' element={
+     <>
+    
       <table className='main-table'>
+      <colgroup>
+        <col style={{ width: '25%' }} />
+        <col style={{ width: '25%' }} />
+        <col style={{ width: '10%' }} />
+        <col style={{ width: '10%' }} />
+        <col style={{ width: '20%' }} />
+        <col style={{ width: '10%' }} />
+      </colgroup>
             <thead>
               <tr>
                 <th>English</th>
@@ -202,19 +223,29 @@ function Body() {
 
               </tr>
             </thead>
+            
             <tbody>
+            
+            {currentItems.length === 0 ? (
+        <p className='no-data'>No data found</p>
+      ) : (<>
               {currentItems.map((row) => (
                 <tr key={row.error_code} onClick={() => handleRowClick(row)}>
-                  <td>{row.en}</td>
-                  <td>{row.de}</td>
+                   <td>{row.en.length > 20 ? row.en.substring(0, 20) + '...' : row.en}</td>
+                   <td>{row.de.length > 20 ? row.de.substring(0, 20) + '...' : row.de}</td>
                   <td>{row.error_code}</td>
                   <td>{row.error_source.label}</td>
                   <td>{row.service_details.label}</td>
                   <td>{row.system_name.label}</td>
                 </tr>
               ))}
+              </>
+              )}
             </tbody>
+             
           </table>
+     
+       
           <Pagination setCurrentPage={setCurrentPage}
           filteredData={filteredData}
           itemsPerPage={itemsPerPage}
@@ -227,8 +258,13 @@ function Body() {
             data={data} setData={setData}
             setSelectedRow={setSelectedRow}
             handleClose={handleClose} 
-            isDetailOpen={isDetailOpen}/>
+            isDetailOpen={isDetailOpen}
+            />
         </div>
+       </>
+      } />
+      <Route path='/new-page' element={<FileGrab/>} />
+</Routes>
         {/* <div>
 
           <table className='main-table'>
@@ -275,6 +311,7 @@ function Body() {
 
       </div>
     </div>
+    </Router>
   );
 }
 
